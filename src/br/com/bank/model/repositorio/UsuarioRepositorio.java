@@ -2,14 +2,15 @@ package br.com.bank.model.repositorio;
 
 import br.com.bank.model.entidades.Usuario;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
 public class UsuarioRepositorio implements IUsuarioRepositorio {
     private List<Usuario> usuarioList;
 
-    public UsuarioRepositorio(List<Usuario> usuarioList) {
-        this.usuarioList = usuarioList;
+    public UsuarioRepositorio() {
+        this.usuarioList = new ArrayList<>();
     }
 
     @Override
@@ -30,15 +31,14 @@ public class UsuarioRepositorio implements IUsuarioRepositorio {
     @Override
     public void deletar(int id) {
         Iterator<Usuario> iterator = usuarioList.iterator();
+
+        // Itera sobre os elementos da lista usando o for-each loop
         while (iterator.hasNext()) {
             Usuario usuario = iterator.next();
             if (usuario.getId() == id) {
-                iterator.remove();
-                System.out.println("Usuário removido com sucesso.");
-                return;
+                iterator.remove(); // Remove o elemento usando o iterador seguro
             }
         }
-        System.out.println("Usuário com o ID " + id + " não encontrado.");
     }
 
     @Override
