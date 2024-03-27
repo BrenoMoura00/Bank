@@ -22,9 +22,11 @@ public class teste {
 
         Login loginNovo = new Login("teste@gmail.com", "teste123", "81238183");
         Endereco enderecoNovo = new Endereco("teste", 12, "testeee", "testee", "123");
-        Usuario usuarioNovo = new Usuario(1, "Sérgio", "866,558,254-15", 48, LocalDate.of(1973, 8, 9), "234", endereco, login);
+        Usuario usuarioNovo = new Usuario(1, "Eliane", "030.268.204-07", 48, LocalDate.of(1973, 8, 9), "234", endereco, login);
 
         rep.alterar(usuarioNovo);
+
+
 
         List<Usuario> usuarioLi = rep.listar();
         System.out.println("===============Alterou===================");
